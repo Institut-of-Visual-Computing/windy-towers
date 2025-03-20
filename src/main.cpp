@@ -196,8 +196,10 @@ void setup() {
     //pinMode(A_IN_RPWM, INPUT_PULLDOWN);
     Serial.println("I am " + hostName);
     cli_setup();
-    wifi_setup();
-    osc_setup();
+    #ifdef USE_WIFI
+      wifi_setup();
+      osc_setup();
+    #endif
     Serial.println("Setup done");
     lastMillis = millis();
 }
@@ -207,6 +209,8 @@ void loop() {
     lastMillis = millis();
     drd->loop();
     cli_loop();
-    OscWiFi.update();
+    #ifdef USE_WIFI
+        OscWiFi.update();
+    #endif
     delay(100);
 }

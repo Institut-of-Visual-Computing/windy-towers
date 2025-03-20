@@ -4,6 +4,9 @@
 #define PWM_OUT_LPWM GPIO_NUM_33
 #define LED_BUILTIN GPIO_NUM_2
 
+// comment in next line to use CLI only
+#define USE_WIFI
+
 #ifdef ENV_BOARD_LEFT
     #include "left/board_settings.h"
 #else
